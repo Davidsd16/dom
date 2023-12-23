@@ -85,3 +85,21 @@ console.log(linkBold);
 // retornar todos los elementos de un Nodo
 const elemntsAll = document.querySelectorAll('.link');
 console.log(elemntsAll);
+
+// HTML Collection VS Node List
+const linksHTML = document.getElementsByClassName('link');
+const linksNode = document.querySelectorAll('link');
+
+
+const tagAnchor = document.createElement('a');
+tagAnchor.setAttribute('class', 'link');
+tagAnchor.textContent = 'Hola Mundo';
+document.body.append(tagAnchor);
+
+console.log(linksHTML);
+console.log(linksNode);
+
+// convertir html o nodos en Array
+
+const linksNodeArray = Array.from(document.querySelectorAll('link'));
+console.log(linksNodeArray);
