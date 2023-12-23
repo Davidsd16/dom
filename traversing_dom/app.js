@@ -25,3 +25,37 @@ console.log(lastElement);
 // Retorna verdadero si el nodo tiene hijos
 const trueChildren = document.body.children[0]
 console.log(trueChildren.hasChildNodes());
+
+/////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+
+// Acceder al hijo en la posicion uno//
+const div = wrapper.children[1];
+console.log(div);
+
+// Modificar el texto de un nodo
+const h1 = wrapper.children[0];
+h1.textContent = "Texto modificado desde el DOM"
+
+// Escuchar eventos en DOM y cambiar estilos
+var anchor = document.querySelectorAll('.anchor');
+
+// Accede al primer elemento de la NodeList (índice 0)
+var primerHijo = anchor[0].children[0];
+
+// Imprime el primer hijo en la consola
+console.log(primerHijo);
+
+// Agrega un evento click al primer hijo
+primerHijo.addEventListener('click', function(){
+    document.documentElement.style.backgroundColor = "black";
+    document.documentElement.style.color = "white";
+});
+
+// Como accder y subir entre los nodo padres, ascendente!.
+console.log(primerHijo.parentNode.parentNode.parentNode);
+
+//////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+// OBTENER ELEMENTOS DEL DOM CON CARACTERISTICAS ESPECIALES ///
