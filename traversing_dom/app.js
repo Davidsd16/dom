@@ -58,4 +58,30 @@ console.log(primerHijo.parentNode.parentNode.parentNode);
 //////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
 
-// OBTENER ELEMENTOS DEL DOM CON CARACTERISTICAS ESPECIALES ///
+// OBTENER ELEMENTOS DEL DOM CON CARACTERISTICAS ESPECIALES
+ /// conseguir elementos por ID
+const wrapper_1 = document.getElementById('wrapper');
+console.log(wrapper_1);
+
+// Conseguir elementos por clase
+const link_1 = document.getElementsByClassName("link bold");
+console.log(link_1); 
+
+// Buscar todo los elemntos relacionados con el mismo nombre
+const divs = document.getElementsByTagName('div');
+console.log(divs);
+
+// Retornar una lista de nodos que contengan su atributo name, solo se puede utilizar en el nodo raiz
+const input = document.getElementsByName('telefono');
+console.log(input);
+
+// Retornar un elemnto por selector de css
+const wrapper_2 = document.querySelector('#wrapper');
+console.log(wrapper_2);
+
+const linkBold = wrapper_2.querySelector('.title_2');
+console.log(linkBold);
+
+// retornar todos los elementos de un Nodo
+const elemntsAll = document.querySelectorAll('.link');
+console.log(elemntsAll);
