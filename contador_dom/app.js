@@ -7,11 +7,9 @@ let contador = 0;
 btAumentar.addEventListener('click', () => {
     contador++;
     span.textContent = contador;
-
 })
 
 btDisminuir.addEventListener('click', () => {
     contador--;
     span.textContent = contador;
-
 })
