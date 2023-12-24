@@ -1,4 +1,3 @@
-// Algoritmo para aumentar el contador
 const btAumentar = document.querySelector('.btn-info');
 const btDisminuir = document.querySelector('.btn-danger');
 
