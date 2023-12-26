@@ -15,17 +15,45 @@ let player = {
     o: 'circle'
 }
 
-messageTurn.textContent = isTurnX ? 'X' : 'O';
+
 createBoard();
 
 // Función para crear el tablero de juego
 function createBoard() {
     const cells = 9;
+
+    while (gameBoard.firstElementChild) {
+        gameBoard.firstElementChild.remove();
+    }
+
     // Bucle para crear las celdas del tablero
     for (let i = 0; i < cells; i++) {
         const div = document.createElement('div');
         div.classList.add('cell');
 
+        div.addEventListener('click', handleGame, { once:true })
+
         gameBoard.append(div);
     }
+}
+
+// Interacciones del juego cuando se hace clic
+function handleGame(e) {
+    const currentCell = e.currentTarget;
+    const currentTurn = isTurnX ? player.x : player.o;
+    
+    turn++;
+    drawShape(currentCell, currentTurn);
+
+    changeTurn();
+}
+
+// Dibujar el símbolo del jugador
+function drawShape(elements, newClass) {
+    elements.classList.add(newClass);
+}
+
+function changeTurn() {
+    isTurnX = !isTurnX;
+    messageTurn.textContent = isTurnX ? 'X' : 'O';
 }
