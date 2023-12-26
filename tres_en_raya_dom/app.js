@@ -12,8 +12,13 @@ let turn = 0;
 let maxTurn = 9;
 let player = {
     x:'cross',
-    o: 'circle'
+    o:'circle'
 }
+
+const winningPosition = [
+    [0,1,2], [3,4,5], [6,7,8], [0,3,6]
+    [1,4,7], [2,5,8], [0,4,8], [2,4,6]
+]
 
 
 createBoard();
@@ -32,7 +37,7 @@ function createBoard() {
         div.classList.add('cell');
 
         div.addEventListener('click', handleGame, { once:true })
-
+        
         gameBoard.append(div);
     }
 }
@@ -44,16 +49,59 @@ function handleGame(e) {
     
     turn++;
     drawShape(currentCell, currentTurn);
-
     changeTurn();
+    if (checkWinner(currentTurn)) {
+        return;
+    }
+
+    
+    checkWinner(currentTurn);
+
+    
 }
 
 // Dibujar el símbolo del jugador
-function drawShape(elements, newClass) {
-    elements.classList.add(newClass);
+function drawShape(element, newClass) {
+    element.classList.add(newClass);
 }
 
 function changeTurn() {
     isTurnX = !isTurnX;
     messageTurn.textContent = isTurnX ? 'X' : 'O';
 }
+
+// Función para verificar si hay un ganador
+function checkWinner(currentPlayer) {
+    const cells = document.querySelectorAll('.cell');
+
+        // Verificar combinaciones ganadoras
+        const winner = winningPosition.some(array => {
+            
+            console.log(array);
+    
+
+            // Verificar si la combinación actual pertenecen al jugador
+            return array.every(position => {
+
+                return cells[position].classList.contains
+                (currentPlayer);
+            })
+            
+        })    
+
+        if (!winner) {
+            return;
+        }
+        
+        showEndGame(true);
+        return true;
+    };
+
+    function showEndGame(winner){
+
+    }
+
+
+    
+
+
