@@ -7,9 +7,9 @@ const buttonResert = document.querySelector('.endgame_button');
 
 
 // Variables de control del estado del juego
-let isTurnX = true;
-let turn = 0;
-let maxTurn = 9;
+let isTurnX = true; // Indica si es el turno del jugador X
+let turn = 0;      // Número de turnos jugados
+const maxTurn = 9; // Número máximo de turnos en una partida
 let player = {
     x:'cross',
     o:'circle'
@@ -19,6 +19,7 @@ const winningPosition = [
     [0,1,2], [3,4,5], [6,7,8], [0,3,6],
     [1,4,7], [2,5,8], [0,4,8], [2,4,6]
 ]
+// Iniciar el juego al cargar la página
 startGame();
 
 function startGame() {
@@ -35,6 +36,7 @@ function startGame() {
 function createBoard() {
     const cells = 9;
 
+    // Limpiar el tablero antes de crear nuevas celdas
     while (gameBoard.firstElementChild) {
         gameBoard.firstElementChild.remove();
     }
@@ -44,6 +46,7 @@ function createBoard() {
         const div = document.createElement('div');
         div.classList.add('cell');
 
+        // Agregar evento de clic a cada celda (se ejecuta una vez)
         div.addEventListener('click', handleGame, { once:true })
         
         gameBoard.append(div);
@@ -76,6 +79,7 @@ function drawShape(element, newClass) {
     element.classList.add(newClass);
 }
 
+// Cambiar el turno entre X y O
 function changeTurn() {
     isTurnX = !isTurnX;
     messageTurn.textContent = isTurnX ? 'X' : 'O';
@@ -124,5 +128,6 @@ function checkWinner(currentPlayer) {
         }
     }
 
+    // Agregar evento de clic al botón de reinicio
     buttonResert.addEventListener('click', showEndGame);
 
