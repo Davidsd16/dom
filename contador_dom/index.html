@@ -8,15 +8,17 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container py-5 bg-warning text-center custom-container">
+    <div class="container-fluid py-5 bg-warning text-center custom-container d-flex flex-column align-items-center">
         <h2 class="my-3">Contador</h2>
-        <button class="btn btn-info">
-            Aumentar
-        </button>
-        <button class="btn btn-danger">
-            Disminuir
-        </button>
-        <h3 class="my-5">Resultado: <span id="span" class="custom-counter">0</span></h3>
+        <div class="d-flex justify-content-center mb-3">
+            <button class="btn btn-info me-2">
+                Aumentar
+            </button>
+            <button class="btn btn-danger">
+                Disminuir
+            </button>
+        </div>
+        <h3 class="mb-5">Resultado: <span id="span" class="custom-counter align-middle">0</span></h3>
         <script src="./app.js"></script>
     </div>
 
